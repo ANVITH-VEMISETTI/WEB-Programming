@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>NPSS</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style>
+        #d1
+        {
+            width: 300px;
+            height: 300px;
+            border-radius: 3px;
+            margin: 170px;
+            padding: 50px;
+            border: 2px solid rgb(117, 230, 117);
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px rgb(117, 228, 117);
+        }
+        #d2
+        {
+            width: 300px;
+            height: 300px;
+            border-radius: 3px;
+            box-shadow: 2px;
+            margin: 200px;
+            border: 2px solid rgb(117, 230, 117);
+            border-radius: 10px;
+            box-shadow: 5px 5px 3px rgb(117, 228, 117);
+        }
+
+        * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			text-align: justify;
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #ffeaa7;
+
+		}
+        img
+        {
+            max-width: 100%;
+        }
+        
+        .div
+        {
+            float: left;
+        }
+
+        @media only screen and (max-width: 600px) {
+			body {
+				background-color: lightblue;
+				flex-direction: column;
+				min-height: 100vh;
+			}
+			section {
+				width: 100%;
+				height: 100%;
+				margin-top: 30px;
+			}
+		}
+    </style>
+    <body style="background-color: rgb(240, 226, 162)">
+        <section>
+            <div id="d1" class="div" style="background-color: rgb(168, 238, 168);">
+                <p>This is a DIV</p>
+                <h1>heading 1 tag</h1>
+                <h1>heading 2 tag</h1>
+                <h3>heading 3 tag</h3>
+                <p>paragraph tag</p>
+                <p><a href="https://web.whatsapp.com/" style="display: block;">links</a>(Click to open whatsapp)</p>
+            </div>
+        </section>
+        
+
+        <section>
+            <div id="d2" class="div" style="background-color: rgb(168, 238, 168); display: block;">
+                <img src="NPSS.jpg" style="padding: 100px;">
+            </div>
+        </section>
+    </body>
+</html>

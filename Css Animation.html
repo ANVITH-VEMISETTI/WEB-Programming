@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>
+            CSS transform property
+        </title>
+        <style>
+            body
+            {
+                background-color: rgb(113, 238, 196);
+            }
+            #p1
+            {
+                text-align: center;
+                font-size: 50px;
+                font-family: 'Times New Roman';
+                color: rgb(128, 128, 128, 0.5);
+                position: absolute;
+                top: 40%;
+                left: 30%;
+                z-index: 3px;
+            }
+            @keyframes rotatediv {
+                from{transform: none;}
+                to{transform: rotate(360deg);}
+            }
+            #d1
+            {
+                background-color: rgb(223, 175, 88);
+                height: 450px;
+                width: 450px;
+                position: absolute;
+                top: 25%;
+                left: 35%;
+                z-index: -3px;
+                animation-name: rotatediv;
+                animation-duration: 5s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                animation-fill-mode: both;
+            }
+
+            @keyframes rotateandresize {
+                from{transform: none;}
+                to{transform: rotate(360deg);}
+            }
+            .div1
+            {
+                background-color: rgb(41, 40, 39);
+                height: 150px;
+                width: 150px;
+                float: left;
+                z-index: 0px;
+                animation-name: rotateandresize;
+                animation-duration: 5s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                animation-fill-mode: both;
+            }
+            div:nth-child(1){
+                transform-origin: center center;
+            }
+            .div div:nth-child(1){
+                transform-origin: top left;
+            }
+            .div div:nth-child(2){
+                transform-origin: top center;
+            }
+            .div div:nth-child(3){
+                transform-origin: top right;
+            }
+            .div div:nth-child(4){
+                transform-origin: center left;
+            }
+            .div div:nth-child(5){
+                transform-origin: center center;
+            }
+            .div div:nth-child(6){
+                transform-origin: center right;
+            }
+            .div div:nth-child(7){
+                transform-origin: bottom left;
+            }
+            .div div:nth-child(8){
+                transform-origin: bottom center;
+            }
+            .div div:nth-child(9){
+                transform-origin: bottom right;
+            }
+        </style>
+    </head>
+    <body onload>
+        <div id="d1" class="div">
+            <div id="d2" class="div1"></div>
+            <div id="d3" class="div1"></div>
+            <div id="d4" class="div1"></div>
+            <div id="d5" class="div1"></div>
+            <div id="d6" class="div1"></div>
+            <div id="d7" class="div1"></div>
+            <div id="d8" class="div1"></div>
+            <div id="d9" class="div1"></div>
+            <div id="d10" class="div1"></div>
+        </div>
+
+        <p id="p1">CSS property transform-origin</p>
+        
+    </body>
+</html>

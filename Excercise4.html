@@ -1,0 +1,290 @@
+<html>
+    <head>
+        <title>Application</title>
+        <h1  ondblclick="myFunction5()" style="font-family :'Courier New'; font-weight: bold; font-size: 100px; text-align: center;">Application Form</h1>
+        <h1 id = "heading"></h1>
+        <style>
+           body {
+      background-color: #FFF47D;
+      font-family: Verdana;
+      text-align: center;
+    }
+
+    h1::selection {
+      color: white;
+      background: black;
+    }
+
+
+    form {
+      background-color: #DAD5AB;
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px 20px;
+      box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .mail:invalid {
+      border: 2px solid red;
+    }
+
+
+    .form-control {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+
+    .form-control label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+
+    .form-control input,
+    .form-control select,
+    .form-control textarea {
+      border: 1px solid #777;
+      border-radius: 2px;
+      font-family: inherit;
+      padding: 10px;
+      display: block;
+      width: 95%;
+    }
+
+    ::placeholder {
+      color: blue;
+      font-size: 0.75rem;
+    }
+
+    .form-control input[type="radio"],
+    .form-control input[type="checkbox"] {
+      display: inline-block;
+      width: auto;
+    }
+
+
+    button {
+      background-color: #FFF47D;
+      border: 1px solid #777;
+      border-radius: 2px;
+      font-family: inherit;
+      font-size: 21px;
+      display: block;
+      width: 100%;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #FFE459;
+    }
+    </style>
+    </head>
+    <body onload="loadfunction()" style="background-image: url('https://s3.amazonaws.com/noupe/2009/10/pattern-07.jpg');">
+        <form id="form" onsubmit="myFunction8()" method="post" autocomplete="off"> 
+
+            <div class="form-control">
+            <input type="button" value="Welcome" onclick="alert('Welcome to our Page')">
+            </div>
+
+            <div class="form-control">
+            <label for="name" id="label-name">Name : </label><input type="text" onfocus="focusFunction(this)" id="name" placeholder="Enter your name" onkeyup="myFunction4()" oninvalid="alert('You must fill out the form!');" required>
+            </div>
+
+            <div class="form-control">
+            <lable for="email" id="label-email">Email : </lable><input class="mail" type="email" id="email" placeholder="Enter your email" value="Support Email" onselect="myFunction7()" required>
+            </div>
+
+            <div class="form-control">
+            <label for="mobile">mobile</label>
+            <input type="text" name="mobile" id="mobile" oninvalid="validdata(this)" required>
+            </div>
+
+            <div class="form-control">
+            <label for="age" id="label-age">Age : </label><input type="text" id="age" placeholder="Enter your age" onfocus="myFunction6(this)">
+            </div>
+
+            <fieldset>
+                <div class="form-control">
+                <legend value="Gender">Gender</legend>
+                <label for="recommed-1">
+            <input type="radio" name="gender" value="m" id="recommed-1">Male
+            </label>
+            <label for="recommed-2">
+            <input type="radio" name="gender" value="f" id="recommed-2">Female
+            </label>
+            <label for="recommed-3">
+            <input type="radio" name="gender" value="o" id="recommed-3">other
+            </label>
+            </div>
+            </fieldset>
+
+            <div class="form-control" id="p" onmousedown="mouseDown()" onmouseup="mouseUp()">
+            <label>Languages Known : 
+                <small>(Check all that apply)</small> 
+            </label> 
+            <label for="inp-1">
+            <input type="checkbox" name="inp" value="eng">English</label>
+            <label for="inp-2">
+            <input type="checkbox" name="inp" value="tam">Telugu</label>
+            <label for="inp-3">
+            <input type="checkbox" name="inp" value="hin">Hindi</label>
+            </div>
+
+
+            <div class="form-control">
+            <label>College Branch : </label><input type="text" placeholder="Enter the prefered branch name"
+            name="name" autofocus size="40" required>
+            </div>
+            
+
+            <div class="form-control">
+            <label>Branch : </label>
+            <select name="Branch">
+                <option value="select">Select</option>
+                <optgroup label="CSE">
+                <option value="Core">Core</option>
+                <option value="BCT">IOT</option>
+                <option value="BDS">Data Science</option>
+                </optgroup>
+                <optgroup label="ECE">
+                    <option value="Biochemical">Biochemical</option>
+                <option value="EIS">EIS</option>
+                </optgroup>
+            </select>
+            </div>
+
+            <div class="form-control">
+            <label>HSC Pass percentage(%) : </label><input type="text" pattern="[0-9]{2}[0]{1}">
+            </div>
+
+            <div class="form-control">
+            <input type="text" id="country_code" name="country_code" pattern="[A-Za-z]{3}"
+            title="Three letter country code">
+            </div>
+            
+
+            <div class="form-control">
+            <label for="role" id="label-role">Domain of Intrest :</label>
+            <select name="role" id="role" onchange="myFunction3()">
+                <option value="select">Choose Domain</option>
+                <optgroup label="Azure">
+                <option value="AAI">Azure AI</option>
+                <option value="ADA">Azure Data Analyst</option>
+                <option value="ADO">Azure Devops</option>
+                </optgroup>
+                <optgroup label="Webdevelopment">
+                    <option value="BE">Backend Development</option>
+                    <option value="FE">Frontend Development</option>
+                    <option value="FS">Fullstack Development</option>
+                </optgroup>
+            </select>
+            <p id="demo"></p>
+            </div>
+
+            <div class="form-control">
+            <label>HSC marks sheet : </label><input type="file" accept="img/*" multiple>
+            </div>
+
+            <div class="form-control">
+            <label>  </label><input type="range" max="10" min="0">
+            </div>
+
+            <div class="form-control">
+                <label for="comment">
+                  Describe about yourself
+                </label>
+          
+          
+                <textarea name="comment" id="comment" placeholder="Enter your comment here" onkeypress="myFunction1()">
+                      </textarea>
+              </div>
+
+              <div class="form-control">
+                <label for="comment">
+                  Address
+                </label>
+          
+          
+                <textarea name="comment" id="comment" placeholder="Enter your comment here" onselect="fireselected(this)">
+                      </textarea>
+              </div>
+              
+            <div class="form-control">
+            <button id="diet" type="submit" value="submit" onclick="myFunction2()">
+                Submit
+            </button><input type="reset" onreset="reset()">
+            </div>
+            
+
+            <div class="form-control">
+            <input type="button" value="Thankyou" onclick="alert('Thanks for your Application')">
+            </div>
+
+        <script>
+            function myFunction4() {
+              var x = document.getElementById("name");
+              x.value = x.value.toUpperCase();
+            }
+        
+            function myFunction2() {
+              document.getElementById("diet").innerHTML = "Form Submitted";
+            }
+        
+            function myFunction1() {
+              alert("You pressed a key");
+            }
+        
+            function myFunction3() {
+              var x = document.getElementById("role").value;
+              document.getElementById("demo").innerHTML = "You selected: " + x;
+            }
+        
+            function myFunction5() {
+                document.getElementById("heading").innerHTML = "Welcome!";
+            }
+            
+            function myFunction6(x) {
+                x.style.background = "pink";
+            }
+        
+            function myFunction7() {
+              alert("You selected some text!");
+            }
+        
+            function myFunction8() {
+             alert("The form was submitted");
+            }
+        
+            function mouseDown() {
+             document.getElementById("p").style.color = "red";
+            }
+        
+            function mouseUp() {
+             document.getElementById("p").style.color = "green";
+            }
+
+            function focusFunction(element) {
+                console.log(element);
+                element.style.background = "lime";
+            }
+            function validdata() {
+                alert("enter mobile number")
+            }
+
+            function loadfunction() {
+                alert("page is loaded")
+            }
+
+            function reset() {
+                alert("the form is reset")
+            }
+            function fireselected(val) {
+                alert("selected the event ")
+                console.log(val)
+            }
+        </script>
+
+    </body>
+</html>

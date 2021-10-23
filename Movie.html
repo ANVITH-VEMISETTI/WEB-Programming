@@ -1,0 +1,268 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Movies</title>
+        <link rel="icon" href="movie.jpg" type="image/icon type" style="border-radius: 3px;">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#h3").click(function(){
+                $("#p1").show(3000);
+            });
+            $("#p1").hide();
+
+            $("#p2").on({
+                mouseenter:function(){$(this).css("background-color","red");},
+                mouseleave:function(){$(this).css("background-color","blue");},
+                click:function(){$(this).css("background-color","yellow");},
+            });
+
+            $("#h2").click(function(){
+                $("#s1,#a1,#f1").hide();
+            });
+
+            $("#h5").click(function(){
+                alert("Text : "+$("#p3").text());
+                alert("Html : "+$("#p3").html());
+            });
+
+            $( "#h6" ).click(function() {
+                $( "#p4" ).addClass( "addedclass", 1500, callback );
+            });
+            function callback() {
+                setTimeout(function() {
+                    $( "#p4" ).removeClass( "addedclass" );
+                }, 1000 );
+            }
+
+            $("#h1").click(function(){
+                $("#h1").prepend("Welcome To ");
+                // $("img").after("<span>Before</span>");
+                // var t=$("<p></p>").text("New para");
+                $("body").append("");
+            })
+
+            $("#d1").click(function(){
+                $("#d1").draggable();
+            })
+
+            $("#menu").menu();
+
+        });
+
+        $( function() {
+            var state = true;
+            $( "#button" ).on( "click", function() {
+                if ( state ) {
+                    $( "#effect" ).animate({
+                        backgroundColor: "purple",
+                        color: "#fff",
+                        width: 500
+                    }, 1000 );} 
+                    else {
+                        $( "#effect" ).animate({
+                            backgroundColor: "#fff",
+                            color: "#000",
+                            width: 240
+                            }, 1000 );
+                        }
+                        state = !state;
+                    });
+                });
+        </script>
+        <style>
+            header{
+                border-radius: 20px;
+                width: 100%;
+                height: 100px;
+            }
+            h1{
+                color : purple;
+                text-align: center;
+            }
+            img
+            {
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            nav
+            {
+                background-color: skyblue;
+                color: blueviolet;
+            }
+            nav ul
+            {
+                list-style-type: none;
+                text-decoration-color: blueviolet;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+            li{
+                float: left;
+            }
+            li a{
+                display: block;
+                color: white;
+                font-weight: bolder;
+                text-align: center;
+                padding: 20px;
+                text-decoration: none;
+            }
+            li a:hover{
+                background-color: grey;
+                font-weight: bold;
+            }
+            li ul{
+                display: none;
+                position: absolute;
+            }
+            li:hover ul
+            {
+                display: block;
+            }
+            li ul li{
+                clear: both;
+            }
+            h2{
+                font-style: italic;
+                font-weight: bold;
+                font-family: Arial;
+            }
+            section
+            {
+                border: 2px solid grey;
+                border-radius: 20px;
+                width: 70%;
+                float: left;
+                margin-right: 15px;
+                height: 750px;
+                box-sizing: border-box;
+            }
+            aside
+            {
+                border: 2px solid grey;
+                width: 25%;
+                float: left;
+                padding: 20px;
+                height: 70%;
+                box-sizing: border-box;
+            }
+            article
+            {
+                background-color: rgb(120, 130,130,0.5);
+                border-radius: 50%;
+                border: 2px solid red;
+                border-radius: 20px;
+
+            }
+            .aside
+            {
+                color: azure;
+                font-family: Arial;
+            }
+            .addedclass
+            {
+                color: black;
+                letter-spacing: 2px;
+                font-family: sans-serif;
+                font-size: 20px;
+                font-style: italic;
+            }
+            footer
+            {
+                clear: both;
+                padding-top: 150px;
+                width: 100%;
+                text-align: center;
+                height: 400px;
+                backface-visibility: visible;
+            }
+
+            .toggler { clear: both; width: 500px; height: 200px; position: relative; }
+            #button { padding: .5em 1em; text-decoration: none; }
+            #effect { width: 240px; height: 170px; padding: 0.4em; position: relative; background: #fff; }
+            #effect h3 { margin: 0; padding: 0.4em; text-align: center; }  
+        </style>
+    </head>
+    <body style="background-image: url('https://lh3.googleusercontent.com/proxy/qxrBXBXo1DEY_CBlJEFkG39JvEe-LxdSYOlxlKjzQVb7uByIGTAyf3h-uXm7ebJ_8Xs5PfatdmMjprv0HqvBwS4'); width: 100%;">
+        <header>
+            <h1 id="h1">Movie Suggestion Page</h1>
+            <div id="d1" style="background-image: url('https://images-eu.ssl-images-amazon.com/images/I/81V3oh8q1aL.png');"></div>
+        </header>
+
+        <nav>
+            <ul id="menu">
+                <li class="ui-state-disabled"><a href="#">contents</a>
+                    <ul class="ui-state-disabled">
+                        <li><a href="#">List</a></li>
+                        <li><a href="#">Artist</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="ui-state-disabled">Movies</a>
+                    <ul class="ui-state-disabled">
+                        <li><a href="Thehate.html">The Hate U Give</a></li>
+                        <li><a href="Ferris.html">Ferris Bueller's Day Off</a></li>
+                        <li><a href="Titanic.html">Titanic</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <section id="s1">
+
+            <article id="ar1">
+                <h2 id="h3">The Hate U Give</h2>
+                <p id="p1"><a href="https://en.wikipedia.org/wiki/Amandla_Stenberg"> Amandla Stenberg </a> gives a masterful performance in The Hate U Give—an equally heartbreaking and eye-opening film about main character Starr (Stenberg) who's stuck navigating between two worlds: the prep school she attends that reeks of white privilege and the mostly Black neighborhood where she lives that's harmed by police brutality. It's based on Angie Thomas's 2017 novel.Ferris Bueller's Day Off is a 1986 American teen comedy film written, co-produced, and directed by John Hughes, and co-produced by Tom Jacobson. The film stars Matthew Broderick as Ferris Bueller, a high-school slacker who skips school for a day in Chicago, with Mia Sara and Alan Ruck. Ferris regularly breaks the fourth wall to explain his techniques and inner thoughts.
+                    Hughes wrote the screenplay in less than a week. Filming began in September 1985 and finished in November. Featuring many Chicago landmarks, including the then Sears Tower, Wrigley Field and the Art Institute of Chicago, the film was Hughes's love letter to Chicago: "I really wanted to capture as much of Chicago as I could. Not just in the architecture and landscape, but the spirit."[3]  
+                    In 2014, the film was selected for preservation in the United States National Film Registry by the Library of Congress, being deemed "culturally, historically, or aesthetically significant</p>
+            </article>
+
+            <article id="ar2">
+                <h2 id="h4">Ferris Bueller's Day off</h2>
+                <p id="p2"> Every kid in high school dreamed of having a day off like Ferris Bueller's and, frankly, I still aspire to have one like his as an adult. Come for each character's hilarious antics, stay for the inevitable comparisons between Alan Ruck's character, Cameron Frye, and his current character on Succession, Connor Roy.Ferris Bueller's Day Off is a 1986 American teen comedy film written, co-produced, and directed by John Hughes, and co-produced by Tom Jacobson. The film stars Matthew Broderick as Ferris Bueller, a high-school slacker who skips school for a day in Chicago, with Mia Sara and Alan Ruck. Ferris regularly breaks the fourth wall to explain his techniques and inner thoughts.
+                    Hughes wrote the screenplay in less than a week. Filming began in September 1985 and finished in November. Featuring many Chicago landmarks, including the then Sears Tower, Wrigley Field and the Art Institute of Chicago, the film was Hughes's love letter to Chicago: "I really wanted to capture as much of Chicago as I could. Not just in the architecture and landscape, but the spirit."[3]
+                    Released by Paramount Pictures on June 11, 1986, the film became one of the top-grossing films of the year, grossing $70 million over a $5 million budget. The movie received acclaim from critics and audiences who praised Broderick's performance, the humor, and the tone.
+            </article>
+
+            <article id="ar3">
+                <h2 id="h5">Titanic</h2>
+                <p id="p3">Need we say more? If you haven't watched Titanic yet (please don't admit this out loud), do yourself a favor and stream it on Hulu immediately.itanic is Ferris Bueller's Day Off is a 1986 American teen comedy film written, co-produced, and directed by John Hughes, and co-produced by Tom Jacobson. The film stars Matthew Broderick as Ferris Bueller, a high-school slacker who skips school for a day in Chicago, with Mia Sara and Alan Ruck. Ferris regularly breaks the fourth wall to explain his techniques and inner thoughts.
+                    <a href="https://en.wikipedia.org/wiki/Leonardo_DiCaprio">Leonardo DiCaprio</a> Hughes wrote the screenplay in less than a week. Filming began in September 1985 and finished in November. Featuring many Chicago landmarks, including the then Sears Tower, Wrigley Field and the Art Institute of Chicago, the film was Hughes's love letter to Chicago: "I really wanted to capture as much of Chicago as I could. Not just in the architecture and landscape, but the spirit."[3]
+                    <span>Released by Paramount Pictures on June 11, 1986, the film became one of the top-grossing films </span> of the year, grossing $70 million over a $5 million budget. The movie received acclaim from critics and audiences who praised Broderick's performance, the humor, and the tone.
+            </article>
+
+        </section>
+
+        <aside class="aside1" id="a1" style="background-image: url(https://images-eu.ssl-images-amazon.com/images/I/81V3oh8q1aL.png); background-repeat: no-repeat;">
+            <h2 id="h6" style="font-family: Arial; color : lightblue;">Suggestion</h2>
+            <p id="p4" style="color :rgb(120, 130,130,2);">In this blog i am going to suggest you top 3 must watch Movie  in you life time.The popcorn's been popped, the sweatpants are on, and the evening is your oyster. Your next challenge: Figuring out exactly which of the great movies available to you is the one you're going to commit to tonight. No matter what you're looking for—romance, drama, comedy—there are plenty of classics to watch in your spare time. After all, if the past year-and-a-half cooped up in our homes has taught us anything, it's that there's nothing better than a movie to take us to a place that's far, far away from our current one. These are modern classics, the best of the best, the essential movies that millions of people are probably jealous that you're getting to see for the first time. There are a few that might be outside your comfort zone, and a couple that'll introduce you to cultures and environments you know nothing about. This list may be long, but FOMO is eternal. Here are the essential films absolutely everyone should see (and if you've seen them, ones to watch again and again).<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/must-watch-movies-1607443952.jpg?crop=1.00xw:1.00xh;0,0&resize=980:*"></p>
+        </aside>
+
+        <br><br>
+
+        <div class="toggler">
+            <div id="effect" class="ui-widget-content ui-corner-all">
+              <h3 class="ui-widget-header ui-corner-all">Animate</h3>
+              <p>
+                Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+              </p>
+            </div>
+        </div>
+        <button id="button" class="ui-state-default ui-corner-all">Toggle Effect</button>
+        <br><br>
+        <footer id="f1">
+            <h2 id="h2" style="color: whitesmoke">Enjoy your Movies</h2>
+            <img src="https://images-eu.ssl-images-amazon.com/images/I/81V3oh8q1aL.png">
+            <img src="movie.jpg" style="width: 250px;height: 250px; border-radius: 20px;position: relative;">
+        </footer>
+
+    </body>
+</html>

@@ -1,0 +1,449 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animation1</title>
+        <style>
+            *
+            {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body{
+                background-color: #222;
+            }
+
+            .box{
+                border-radius: 1em;
+                color: #fafafa;
+                margin: 5% auto;
+                max-width: 25em;
+                position: relative;
+                width: 95%;
+                padding: 2em;
+                border: .2em solid #37ddfd;
+                box-shadow: inset 0 0 0.4em #05d5fc, 0 0 0.4em #05d5fc;
+            }
+            
+            .box::before{
+                background-color: #222;
+                content: attr(data-title);
+                left: 50%;
+                padding: 0 1em;
+                position: absolute;
+                text-transform: uppercase;
+                top: -0.6em;
+                text-align: center;
+                transform: translateX(-50%);
+                border-left: 0.2em solid #37ddfd;
+                border-right: 0.2em solid #37ddfd;
+                color: #9ceefe;
+                text-shadow: 0 0 0.4em #37ddfd;
+            }
+
+            .box em{
+                color: #9ceefe;
+            }
+
+            .icon-cards{
+                position: absolute;
+                left: 45%;
+                top: 50%;
+                width: 150px;
+                height: 150px;
+                transform: translate(-50%, -50%);
+                perspective: 1000px;
+                animation: contentbox 5s infinite ease-in-out;
+            }
+
+            .icon-cards-content{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transform-style: preserve-3d;
+                transform: translateZ(-145px) rotateY(0);
+                animation: example 5s infinite ease-in-out forwards;
+            }
+
+            .icon-cards-item{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 150px;
+                height: 150px;
+                opacity: 1;
+                border-radius: 5px;
+            }
+
+            .icon-cards-item:nth-child(1){
+                transform: rotateY(72deg) translateZ(145px);
+                background-color: rgb(235, 113, 113, 0.5);
+            }
+
+            .icon-cards-item:nth-child(2){
+                transform: rotateY(144deg) translateZ(145px);
+                background-color:rgb(81, 235, 81, 0.5);
+            }
+
+            .icon-cards-item:nth-child(3){
+                transform: rotateY(216deg) translateZ(145px);
+                background-color: rgb(243, 243, 176, 0.5);
+            }
+
+            .icon-cards-item:nth-child(4){
+                transform: rotateY(288deg) translateZ(145px);
+                background-color:rgb(126, 126, 235, 0.5);
+            }
+            .icon-cards-item:nth-child(5){
+                transform: rotateY(360deg) translateZ(145px);
+                background-color:orange;
+            } 
+
+            @keyframes example {
+                0%,
+                15% {
+                    transform : translateZ(-145px) rotateY(0);
+                }
+
+                25%,
+                40% {
+                    transform : translateZ(-145px) rotateY(-72deg);
+                }
+
+                50%,
+                65% {
+                    transform : translateZ(-145px) rotateY(-288deg);
+                }
+
+                75%,
+                90% {
+                    transform : translateZ(-145px) rotateY(-360deg);
+                }
+            }
+            @keyframes contentbox {
+                from{transform: rotateZ(0);}
+                to{transform: rotateZ(360deg);}
+            }
+
+            #f1{
+                height: 150px;
+                width: 150px;
+                position: absolute;
+                top: 50%;
+                left: 45%;
+                transform: translateZ(-90px);
+            }
+
+            @keyframes rotateandresize {
+                from{transform: none;}
+                to{transform: rotate(360deg);}
+            }
+
+            .floting{
+                background-color: rgb(41, 40, 39,0.5);
+                height: 50px;
+                width: 50px;
+                float: left;
+                border-radius: 10em;
+                transform: translateZ(-45px);
+                animation-name: rotateandresize;
+                animation-duration: 5s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+                animation-fill-mode: both;
+            }
+
+            #f1 div:nth-child(1)
+            {
+                transform-origin: top left;
+                background-color: #05d5fc;
+            }
+            #f1 div:nth-child(2)
+            {
+                transform-origin:  top center;
+                background-color: #05be05;
+            }
+            #f1 div:nth-child(3)
+            {
+                transform-origin:  top right ;
+                background-color: #fe000066;
+            }
+            #f1 div:nth-child(4)
+            {
+                transform-origin: center left;
+                background-color: #05be0566;
+            }
+            #f1 div:nth-child(5)
+            {
+                transform-origin: center center;
+                background-color: #05d5fc;
+            }
+            #f1 div:nth-child(6)
+            {
+                transform-origin: center right;
+                background-color: #05be05;
+            }
+            #f1 div:nth-child(7)
+            {
+                transform-origin: bottom left;
+                background-color: #fe000066;
+            }
+            #f1 div:nth-child(8)
+            {
+                transform-origin: bottom center;
+                background-color: #05be0566;
+            }
+            #f1 div:nth-child(9)
+            {
+                transform-origin: bottom right;
+                background-color: #9ceefe;
+            }
+
+            label
+            {
+                position: relative;
+                top: 50%;
+                left: 40%;
+                z-index: 0px;
+                width: 160px;
+                height: 80px;
+                cursor: pointer;
+            }
+            label input
+            {
+                position: relative;
+                z-index: 1;
+                appearance: none;
+            }
+            label span
+            {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #fe0000;
+                border-radius: 80px;
+                transition: 0.5s;
+                box-shadow: 0 15px 20px #fe000066;
+            }
+            label input:checked~ span
+            {
+                background : #05be05;
+                box-shadow: 0 15px 20px #05be0566;
+            }
+            label span i
+            {
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                width: 72px;
+                height: 72px;
+                background: #fff;
+                border-radius: 50px;
+                transition: 0.5s;
+            }
+            label input:checked~ span i
+            {
+                left: 84px;
+            }
+            label span i::before
+            {
+                content: '';
+                position: absolute;
+                top: 22px;
+                left: 12px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: #fe0000;
+                box-shadow: 35px 0 0 #fe0000;
+                transition: 0.5s;
+            }
+            label input:checked~ span i::before
+            {
+                background: #05be05;
+                box-shadow: 35px 0 0 #05be05;
+            }
+            label span i::after
+            {
+                content: '';
+                position: absolute;
+                bottom: 15px;
+                left: calc(50% - 15px);
+                width: 30px;
+                height: 15px;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                background-color: #fe0000;
+                transition: 0.5s;
+            }
+            label input:checked~ span i::after
+            {
+                bottom: 12px;
+                height: 15px;
+                border-radius: 0;
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                background: #05be05;
+            }
+
+
+            a
+            {
+                position: absolute;
+                top: 3%;
+                left: 5%;
+                height: 80%;
+                width: 90%;
+                z-index: -3px;
+                display: inline-block;
+                overflow: hidden;
+                transition: 0.2s;
+            }
+            
+            a span
+            {
+                position: absolute;
+                display: block;
+            }
+            a span:nth-child(1)
+            {
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 5px;
+                background: linear-gradient(90deg,transparent, #37ddfd);
+                animation: snakeborder1 2s infinite forwards;
+            }
+            @keyframes snakeborder1 {
+                100% {left: 100%;} 
+            }
+
+            a span:nth-child(3)
+            {
+                bottom: 0;
+                right: -100%;
+                width: 100%;
+                height: 5px;
+                background: linear-gradient(270deg,transparent,#37ddfd);
+                animation: snakeborder3 2s 1s infinite forwards;
+            }
+            @keyframes snakeborder3 {
+                100%{ right: 100%;} 
+            }
+
+            a span:nth-child(2)
+            {
+                top: -100%;
+                right: 0%;
+                width: 5px;
+                height: 100%;
+                background: linear-gradient(180deg,transparent,#37ddfd);
+                animation: snakeborder2 2s 0.5s infinite forwards;
+            }
+            @keyframes snakeborder2 {
+                100% {top: 100%;} 
+            }
+
+            a span:nth-child(4)
+            {
+                bottom: -100%;
+                left: 0%;
+                width: 5px;
+                height: 100%;
+                background: linear-gradient(360deg,transparent,#37ddfd);
+                animation: snakeborder4 2s 1.5s infinite forwards;
+            }
+
+            @keyframes snakeborder4 {
+                100% {bottom: 100%;}
+            }
+
+            #p3
+            {
+                position: absolute;
+                left: 20%;
+                top: 86%;
+                margin: 20px 0 0;
+                font-size: 30px;
+                font-weight: 900;
+                color: #fff;
+                z-index: 1;
+                overflow: hidden;
+            }
+            #p3::before
+            {
+                content: '';
+                position: absolute;
+                left: 100%;
+                width: 120%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent 0%, #222 5%, #222 100%);
+                animation: animate 5s 2s linear infinite both;
+            }
+            @keyframes animate {
+                0% 
+                {
+                    left: -20%;
+                }
+                100%
+                {
+                    left: 100%;
+                }
+                
+            }
+            
+            #p3 span:nth-child(1)
+            {
+                color: #ff022c;
+            }
+            #p3 span:nth-child(2)
+            {
+                color: #05be05;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="box" data-title="introduction">
+            <em>19BCE0237 : </em> My name is VEMISETTI.ANVITH. This is my theory Digitl Assignment for the course Internet And Web Programming from the slot G1
+        </p>
+        <div class="icon-cards">
+            <div class="icon-cards-content">
+                <div class="icon-cards-item"></div>
+                <div class="icon-cards-item"></div>
+                <div class="icon-cards-item"></div>
+                <div class="icon-cards-item"></div>
+                <div class="icon-cards-item"></div>
+            </div>
+        </div>
+        <div id="f1">
+            <div class="floting"></div>
+            <div class="floting"></div>
+            <div class="floting"></div>
+            <div class="floting"></div>
+            <div class="floting"></div>
+            <div class="floting"></div>
+            <div class="floting"></div>
+            <div class="floting"></div>
+            <div class="floting"></div>
+        </div>
+
+        <label>
+            <input type="checkbox">
+            <span>
+                <i></i>
+            </span>
+        </label>
+
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+        <p id="p3"> <span>click</span> me to see <span>smile</span></p>
+    </body>
+</html>
